@@ -12,7 +12,7 @@
 */
 Route::get('/', "\App\Http\Controllers\LoginController@index");
 
-Route::group(['middleware' => 'auth:web'], function(){
+Route::group(['middleware' => 'auth:web'], function () {
     // 文章
     Route::get('/posts', '\App\Http\Controllers\PostController@index');
     Route::get('/posts/create', '\App\Http\Controllers\PostController@create');

@@ -316,16 +316,15 @@ EOF;
             .exception-illustration { flex-basis: 111px; flex-shrink: 0; height: 66px; margin-left: 15px; opacity: .7; }
 
             .trace + .trace { margin-top: 30px; }
-            .trace-head { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
             .trace-head .trace-class { color: #222; font-size: 18px; font-weight: bold; line-height: 1.3; margin: 0; position: relative; }
 
             .trace-message { font-size: 14px; font-weight: normal; margin: .5em 0 0; }
 
-            .trace-file-path, .trace-file-path a { margin-top: 3px; color: #999; color: #795da3; color: #B0413E; color: #222; font-size: 13px; }
+            .trace-file-path, .trace-file-path a { color: #222; margin-top: 3px; font-size: 13px; }
             .trace-class { color: #B0413E; }
             .trace-type { padding: 0 2px; }
-            .trace-method { color: #B0413E; color: #222; font-weight: bold; color: #B0413E; }
-            .trace-arguments { color: #222; color: #999; font-weight: normal; color: #795da3; color: #777; padding-left: 2px; }
+            .trace-method { color: #B0413E; font-weight: bold; }
+            .trace-arguments { color: #777; font-weight: normal; padding-left: 2px; }
 
             @media (min-width: 575px) {
                 .hidden-xs-down { display: initial; }
@@ -394,7 +393,7 @@ EOF;
                 $formattedValue = str_replace("\n", '', $this->escapeHtml(var_export($item[1], true)));
             }
 
-            $result[] = is_int($key) ? $formattedValue : sprintf("'%s' => %s", $key, $formattedValue);
+            $result[] = is_int($key) ? $formattedValue : sprintf("'%s' => %s", $this->escapeHtml($key), $formattedValue);
         }
 
         return implode(', ', $result);

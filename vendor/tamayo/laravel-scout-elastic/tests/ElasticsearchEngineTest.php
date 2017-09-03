@@ -63,7 +63,8 @@ class ElasticsearchEngineTest extends PHPUnit_Framework_TestCase
                     'bool' => [
                         'must' => [
                             ['query_string' => ['query' => '*zonda*']],
-                            ['match_phrase' => ['foo' => 1]]
+                            ['match_phrase' => ['foo' => 1]],
+                            ['terms' => ['bar' => [1, 3]]],
                         ]
                     ]
                 ],
@@ -76,7 +77,30 @@ class ElasticsearchEngineTest extends PHPUnit_Framework_TestCase
         $engine = new ElasticsearchEngine($client, 'scout');
         $builder = new Laravel\Scout\Builder(new ElasticsearchEngineTestModel, 'zonda');
         $builder->where('foo', 1);
+        $builder->where('bar', [1, 3]);
         $builder->orderBy('id', 'desc');
+        $engine->search($builder);
+    }
+
+    public function test_builder_callback_can_manipulate_search_parameters_to_elasticsearch()
+    {
+        /** @var \Elasticsearch\Client|\Mockery\MockInterface $client */
+        $client = Mockery::mock(\Elasticsearch\Client::class);
+        $client->shouldReceive('search')->with('modified_by_callback');
+
+        $engine = new ElasticsearchEngine($client, 'scout');
+        $builder = new Laravel\Scout\Builder(
+            new ElasticsearchEngineTestModel(),
+            'huayra',
+            function (\Elasticsearch\Client $client, $query, $params) {
+                $this->assertNotEmpty($params);
+                $this->assertEquals('huayra', $query);
+                $params = 'modified_by_callback';
+
+                return $client->search($params);
+            }
+        );
+
         $engine->search($builder);
     }
 

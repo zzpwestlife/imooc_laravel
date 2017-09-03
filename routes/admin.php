@@ -1,17 +1,17 @@
 <?php
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/login', '\App\Admin\Controllers\LoginController@index');
     Route::post('/login', '\App\Admin\Controllers\LoginController@login');
     Route::get('/logout', '\App\Admin\Controllers\LoginController@logout');
 
     // 需要登陆的
-    Route::group(['middleware' => 'auth:admin'], function(){
+//    Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/home', '\App\Admin\Controllers\HomeController@index');
 
         // 系统管理
-        Route::group(['middleware' => 'can:system'], function(){
+        Route::group(['middleware' => 'can:system'], function () {
             // 用户管理
             Route::get('/users', '\App\Admin\Controllers\UserController@index');
             Route::get('/users/create', '\App\Admin\Controllers\UserController@create');
@@ -33,24 +33,29 @@ Route::group(['prefix' => 'admin'], function() {
         });
 
         // 文章管理
-        Route::group(['middleware' => 'can:post'], function() {
+        Route::group(['middleware' => 'can:post'], function () {
             // 文章管理
             Route::get('/posts', '\App\Admin\Controllers\PostController@index');
             Route::post('/posts/{post}/status', '\App\Admin\Controllers\PostController@status');
         });
 
         // 专题模块
-        Route::group(['middleware' => 'can:topic'], function(){
-            Route::resource('topics', '\App\Admin\Controllers\TopicController', ['only' => [
-                'index', 'create', 'store', 'destroy'
-            ]]);
+        Route::group(['middleware' => 'can:topic'], function () {
+            Route::resource('topics', '\App\Admin\Controllers\TopicController', [
+                'only' => [
+                    'index',
+                    'create',
+                    'store',
+                    'destroy'
+                ]
+            ]);
         });
 
         // 通知模块
-        Route::group(['middleware' => 'can:notice'], function(){
-           Route::resource('notices', '\App\Admin\Controllers\NoticeController', [
-               'only' => ['index', 'create', 'store'],
-           ]);
+        Route::group(['middleware' => 'can:notice'], function () {
+            Route::resource('notices', '\App\Admin\Controllers\NoticeController', [
+                'only' => ['index', 'create', 'store'],
+            ]);
         });
-    });
+//    });
 });

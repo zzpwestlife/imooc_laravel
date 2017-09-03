@@ -154,6 +154,15 @@ class ElasticsearchEngine extends Engine
                 $options['numericFilters']);
         }
 
+        if ($builder->callback) {
+            return call_user_func(
+                $builder->callback,
+                $this->elastic,
+                $builder->query,
+                $params
+            );
+        }
+
         return $this->elastic->search($params);
     }
 
@@ -166,6 +175,10 @@ class ElasticsearchEngine extends Engine
     protected function filters(Builder $builder)
     {
         return collect($builder->wheres)->map(function ($value, $key) {
+            if (is_array($value)) {
+                return ['terms' => [$key => $value]];
+            }
+
             return ['match_phrase' => [$key => $value]];
         })->values()->all();
     }
@@ -203,7 +216,7 @@ class ElasticsearchEngine extends Engine
 
         return collect($results['hits']['hits'])->map(function ($hit) use ($model, $models) {
             return isset($models[$hit['_id']]) ? $models[$hit['_id']] : null;
-        })->filter();
+        })->filter()->values();
     }
 
     /**

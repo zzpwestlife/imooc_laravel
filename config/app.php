@@ -181,6 +181,11 @@ return [
         ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        /**
+        * added
+        */
+        //Jenssegers\Mongodb\MongodbServiceProvider::class,
+
     ],
 
     /*
