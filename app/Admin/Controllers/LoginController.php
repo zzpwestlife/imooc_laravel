@@ -16,6 +16,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+        \DB::enableQueryLog();
         $this->validate($request, [
             'name' => 'required|min:2',
             'password' => 'required|min:6|max:30',
@@ -37,6 +38,4 @@ class LoginController extends Controller
         \Auth::guard('admin')->logout();
         return redirect('/admin/login');
     }
-
-
 }

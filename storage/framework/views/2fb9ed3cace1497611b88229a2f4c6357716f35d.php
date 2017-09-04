@@ -4,7 +4,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">后台</span>
+        <span class="logo-lg">微考研管理后台</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -26,7 +26,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-right">
-                                <a href="/admin/logout" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="/admin/logout" class="btn btn-default btn-flat">退出</a>
                             </div>
                         </li>
                     </ul>

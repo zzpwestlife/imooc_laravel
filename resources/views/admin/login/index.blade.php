@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>wekaoyan | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -28,7 +28,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="/adminlte/index2.html">ylaravel管理后台</a>
+        <a href="/adminlte/index2.html">微考研管理后台</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -47,7 +47,7 @@
             @include("admin.layout.error")
             <div class="row">
                 <!-- /.col -->
-                <div class="col-xs-4">
+                <div class="col-xs-4 col-xs-offset-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">登陆</button>
                 </div>
                 <!-- /.col -->

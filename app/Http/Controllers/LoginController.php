@@ -8,7 +8,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        if(\Auth::check()) {
+        if (\Auth::check()) {
             return redirect("/posts");
         }
 
@@ -26,7 +26,7 @@ class LoginController extends Controller
         $user = request(['email', 'password']);
         $remember = boolval(request('is_remember'));
         if (true == \Auth::attempt($user, $remember)) {
-           return redirect('/posts');
+            return redirect('/posts');
         }
 
         return \Redirect::back()->withErrors("用户名密码错误");

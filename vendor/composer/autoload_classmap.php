@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AlterPostsTable' => $baseDir . '/database/migrations/2017_04_08_215943_alter_posts_table.php',
     'AlterUserTableAddAvatar' => $baseDir . '/database/migrations/2017_05_14_205043_alter_user_table_add_avatar.php',
+    'CreateAdminPermissionsTable' => $baseDir . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
     'CreateAdminUserTable' => $baseDir . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
     'CreateCommentTable' => $baseDir . '/database/migrations/2017_04_04_091147_create_comment_table.php',
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2017_04_11_234539_create_failed_jobs_table.php',
@@ -215,7 +216,7 @@ return array(
     'PHPUnit\\Util\\TestDox\\TextResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/TextResultPrinter.php',
     'PHPUnit\\Util\\TestDox\\XmlResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/XmlResultPrinter.php',
     'PHPUnit\\Util\\Type' => $vendorDir . '/phpunit/phpunit/src/Util/Type.php',
-    'PHPUnit\\Util\\Xml' => $vendorDir . '/phpunit/phpunit/src/Util/Xml.php',
+    'PHPUnit\\Util\\Xml' => $vendorDir . '/phpunit/phpunit/src/Util/XML.php',
     'PHPUnit_Framework_MockObject_BadMethodCallException' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Exception/BadMethodCallException.php',
     'PHPUnit_Framework_MockObject_Builder_Identity' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/Identity.php',
     'PHPUnit_Framework_MockObject_Builder_InvocationMocker' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/InvocationMocker.php',

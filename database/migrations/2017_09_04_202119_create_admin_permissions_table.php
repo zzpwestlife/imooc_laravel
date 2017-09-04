@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminUserTable extends Migration
+class CreateAdminPermissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAdminUserTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('admin_users')) {
-            Schema::create('admin_users', function (Blueprint $table) {
+        if (!Schema::hasTable('admin_permissions')) {
+            Schema::create('admin_permissions', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('name');
-                $table->string('password');
-                $table->rememberToken();
+                $table->string('name')->comment('权限名');
+                $table->string('description')->comment('描述');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -32,8 +31,10 @@ class CreateAdminUserTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('admin_users')) {
-            Schema::dropIfExists('admin_users');
+        if (Schema::hasTable('admin_permissions')) {
+            Schema::dropIfExists('admin_permissions');
         }
     }
+
+
 }

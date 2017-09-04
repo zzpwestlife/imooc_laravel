@@ -363,6 +363,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
     public static $classMap = array (
         'AlterPostsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_08_215943_alter_posts_table.php',
         'AlterUserTableAddAvatar' => __DIR__ . '/../..' . '/database/migrations/2017_05_14_205043_alter_user_table_add_avatar.php',
+        'CreateAdminPermissionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
         'CreateAdminUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
         'CreateCommentTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_04_091147_create_comment_table.php',
         'CreateFailedJobsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_234539_create_failed_jobs_table.php',
@@ -570,7 +571,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         'PHPUnit\\Util\\TestDox\\TextResultPrinter' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/TestDox/TextResultPrinter.php',
         'PHPUnit\\Util\\TestDox\\XmlResultPrinter' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/TestDox/XmlResultPrinter.php',
         'PHPUnit\\Util\\Type' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Type.php',
-        'PHPUnit\\Util\\Xml' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Xml.php',
+        'PHPUnit\\Util\\Xml' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/XML.php',
         'PHPUnit_Framework_MockObject_BadMethodCallException' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Exception/BadMethodCallException.php',
         'PHPUnit_Framework_MockObject_Builder_Identity' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Builder/Identity.php',
         'PHPUnit_Framework_MockObject_Builder_InvocationMocker' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Builder/InvocationMocker.php',
