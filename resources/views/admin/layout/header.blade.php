@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/adminlte/index2.html" class="logo">
+    <a href="/admin/home" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"></span>
         <!-- logo for regular state and mobile devices -->
@@ -10,7 +10,7 @@
     <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button-->
         <a href="/adminlte/#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">左侧导航</span>
         </a>
 
         <div class="navbar-custom-menu">
