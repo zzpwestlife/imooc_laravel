@@ -10,36 +10,33 @@ class SchoolController extends Controller
     public function index()
     {
         \DB::enableQueryLog();
-        $schools = School::orderBy('created_at', 'desc')->paginate();
+        $schools = School::whereNull('deleted_at')->orderBy('created_at', 'desc')->paginate();
 
 //        dd(\DB::getQueryLog());
         return view('/admin/school/index', compact('schools'));
     }
 
-    /*
-     * 具体登陆
-     */
-    public function login(Request $request)
+    public function create()
     {
-        $this->validate($request, [
-            'name' => 'required|min:4',
-            'password' => 'required|min:6|max:30',
-        ]);
-
-        $user = request(['name', 'password']);
-        if (true == \Auth::guard('admin')->attempt($user)) {
-            return redirect('/admin/home');
-        }
-
-        return \Redirect::back()->withErrors("用户名密码错误");
+        return view('admin/school/create');
     }
 
-    /*
-     * 登出操作
-     */
-    public function logout()
+    public function store(Request $request)
     {
-        \Auth::guard('admin')->logout();
-        return redirect('/admin/login');
+        $this->validate($request, [
+            'name' => 'required|min:3'
+        ]);
+
+        School::create(request(['name']));
+        return redirect('/admin/school/index');
+    }
+
+    public function destroy(School $school)
+    {
+        $school->delete();
+        return [
+            'error' => 0,
+            'msg' => '',
+        ];
     }
 }

@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     // 专题模块
-    Route::group(['middleware' => 'can:topic'], function () {
+//    Route::group(['middleware' => 'can:topic'], function () {
         Route::resource('topics', '\App\Admin\Controllers\TopicController', [
             'only' => [
                 'index',
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin'], function () {
                 'destroy'
             ]
         ]);
-    });
+//    });
 
     // 通知模块
     Route::group(['middleware' => 'can:notice'], function () {
@@ -59,6 +59,13 @@ Route::group(['prefix' => 'admin'], function () {
 //    });
 
     // 学校管理
-    Route::get('/schools', '\App\Admin\Controllers\SchoolController@index');
+    Route::resource('schools', '\App\Admin\Controllers\SchoolController', [
+        'only' => [
+            'index',
+            'create',
+            'store',
+            'destroy'
+        ]
+    ]);
 
 });

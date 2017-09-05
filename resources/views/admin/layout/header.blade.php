@@ -37,4 +37,7 @@
             </ul>
         </div>
     </nav>
+    @yield('add_css')
+    @yield('css')
+
 </header>

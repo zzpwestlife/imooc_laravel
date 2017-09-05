@@ -42,6 +42,11 @@
                 </a>
             </li>
             <li class="active treeview">
+                <a href="/admin/topics">
+                    <i class="fa fa-dashboard"></i> <span>专题管理</span>
+                </a>
+            </li>
+            <li class="active treeview">
                 <a href="/admin/scorelines">
                     <i class="fa fa-dashboard"></i> <span>分数线管理</span>
                 </a>

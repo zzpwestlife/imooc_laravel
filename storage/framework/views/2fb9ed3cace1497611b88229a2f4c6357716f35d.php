@@ -37,4 +37,7 @@
             </ul>
         </div>
     </nav>
+    <?php echo $__env->yieldContent('add_css'); ?>
+    <?php echo $__env->yieldContent('css'); ?>
+
 </header>
