@@ -57,4 +57,8 @@ Route::group(['prefix' => 'admin'], function () {
         ]);
     });
 //    });
+
+    // 学校管理
+    Route::get('/schools', '\App\Admin\Controllers\SchoolController@index');
+
 });

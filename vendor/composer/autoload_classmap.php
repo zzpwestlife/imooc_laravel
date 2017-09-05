@@ -6,21 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AlterPostsTable' => $baseDir . '/database/migrations/2017_04_08_215943_alter_posts_table.php',
-    'AlterUserTableAddAvatar' => $baseDir . '/database/migrations/2017_05_14_205043_alter_user_table_add_avatar.php',
     'CreateAdminPermissionsTable' => $baseDir . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
     'CreateAdminUserTable' => $baseDir . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
-    'CreateCommentTable' => $baseDir . '/database/migrations/2017_04_04_091147_create_comment_table.php',
-    'CreateFailedJobsTable' => $baseDir . '/database/migrations/2017_04_11_234539_create_failed_jobs_table.php',
-    'CreateFanTable' => $baseDir . '/database/migrations/2017_04_05_223606_create_fan_table.php',
-    'CreateJobsTable' => $baseDir . '/database/migrations/2017_04_11_234527_create_jobs_table.php',
-    'CreateNoticeTable' => $baseDir . '/database/migrations/2017_04_11_143417_create_notice_table.php',
-    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePermissionAndRoles' => $baseDir . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',
-    'CreatePostsTable' => $baseDir . '/database/migrations/2017_03_26_233534_create_posts_table.php',
-    'CreateTopicsTable' => $baseDir . '/database/migrations/2017_04_06_162830_create_topics_table.php',
-    'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
-    'CreateZanTable' => $baseDir . '/database/migrations/2017_04_04_112227_create_zan_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',

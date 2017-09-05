@@ -1,3 +1,6 @@
+<!--Icon-fonts css-->
+<link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.min.css">
+
 <header class="main-header">
     <!-- Logo -->
     <a href="/admin/home" class="logo">

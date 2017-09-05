@@ -90,7 +90,7 @@ class Post extends Model
     /*
      * 可以显示的文章
      */
-    public function scopeAviable($query)
+    public function scopeAvailable($query)
     {
         return $query->whereIn('status', [0, 1]);
     }

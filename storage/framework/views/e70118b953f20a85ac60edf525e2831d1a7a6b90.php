@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,18 +41,17 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <?php echo $__env->make("admin.layout.header", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <!-- Left side column. contains the logo and sidebar -->
-    <?php echo $__env->make("admin.layout.sidebar", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <!-- Content Wrapper. Contains page content -->
+<?php echo $__env->make("admin.layout.header", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- Left side column. contains the logo and sidebar -->
+<?php echo $__env->make("admin.layout.sidebar", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-        <?php echo $__env->yieldContent("content"); ?>
-        <!-- /.content -->
+    <?php echo $__env->yieldContent("content"); ?>
+    <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php echo $__env->make("admin.layout.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <!-- /.control-sidebar -->
+<?php echo $__env->make("admin.layout.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>

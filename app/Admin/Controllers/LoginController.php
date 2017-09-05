@@ -16,9 +16,8 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        \DB::enableQueryLog();
         $this->validate($request, [
-            'name' => 'required|min:2',
+            'name' => 'required|min:4',
             'password' => 'required|min:6|max:30',
         ]);
 

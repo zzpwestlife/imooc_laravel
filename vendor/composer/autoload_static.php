@@ -16,10 +16,10 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -54,6 +54,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Symfony\\Component\\ClassLoader\\' => 30,
             'ScoutEngines\\Elasticsearch\\' => 27,
         ),
         'R' => 
@@ -116,6 +117,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         ),
         'B' => 
         array (
+            'Barryvdh\\LaravelIdeHelper\\' => 26,
             'Barryvdh\\Debugbar\\' => 18,
         ),
         'A' => 
@@ -194,6 +196,10 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Symfony\\Component\\ClassLoader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/class-loader',
         ),
         'ScoutEngines\\Elasticsearch\\' => 
         array (
@@ -311,6 +317,10 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Barryvdh\\LaravelIdeHelper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barryvdh/laravel-ide-helper/src',
+        ),
         'Barryvdh\\Debugbar\\' => 
         array (
             0 => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src',
@@ -358,24 +368,19 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
                 0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
             ),
         ),
+        'B' => 
+        array (
+            'Barryvdh' => 
+            array (
+                0 => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
-        'AlterPostsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_08_215943_alter_posts_table.php',
-        'AlterUserTableAddAvatar' => __DIR__ . '/../..' . '/database/migrations/2017_05_14_205043_alter_user_table_add_avatar.php',
         'CreateAdminPermissionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
         'CreateAdminUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
-        'CreateCommentTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_04_091147_create_comment_table.php',
-        'CreateFailedJobsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_234539_create_failed_jobs_table.php',
-        'CreateFanTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_05_223606_create_fan_table.php',
-        'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_234527_create_jobs_table.php',
-        'CreateNoticeTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_143417_create_notice_table.php',
-        'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePermissionAndRoles' => __DIR__ . '/../..' . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',
-        'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_26_233534_create_posts_table.php',
-        'CreateTopicsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_06_162830_create_topics_table.php',
-        'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
-        'CreateZanTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_04_112227_create_zan_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
