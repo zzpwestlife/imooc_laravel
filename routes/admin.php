@@ -59,13 +59,20 @@ Route::group(['prefix' => 'admin'], function () {
 //    });
 
     // 学校管理
-    Route::resource('schools', '\App\Admin\Controllers\SchoolController', [
-        'only' => [
-            'index',
-            'create',
-            'store',
-            'destroy'
-        ]
+    Route::get('/school', '\App\Admin\Controllers\SchoolController@index');
+    // 新增界面
+    Route::get('school/create', [
+        'as' => 'school.create',
+        'uses' => '\App\Admin\Controllers\SchoolController@create'
     ]);
+
+    // 编辑界面
+    Route::get('school/create/{id}', [
+        'as' => 'school.update',
+        'uses' => '\App\Admin\Controllers\SchoolController@create'
+    ]);
+
+    Route::post('/school/store', '\App\Admin\Controllers\SchoolController@store');
+    Route::post('/school/{school}/delete', '\App\Admin\Controllers\SchoolController@delete');
 
 });

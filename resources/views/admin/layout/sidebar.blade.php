@@ -23,7 +23,7 @@
                     <span class="pull-right-container"></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/schools"><i class="fa fa-circle-o"></i> 学校管理</a></li>
+                    <li><a href="/admin/school"><i class="fa fa-circle-o"></i> 学校管理</a></li>
                     <li><a href="/admin/majors"><i class="fa fa-circle-o"></i> 学院专业管理</a></li>
                 </ul>
             </li>

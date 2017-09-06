@@ -18,15 +18,18 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
 
-        \View::composer('layout.nav', function($view){
-            $user = \Auth::user();
-            $view->with('user', $user);
-        });
+//        \View::composer('layout.nav', function($view){
+//            $user = \Auth::user();
+//            $view->with('user', $user);
+//        });
+//
+//        \View::composer('layout.sidebar', function($view){
+//            $topics = \App\Topic::all();
+//            $view->with('topics', $topics);
+//        });
 
-        \View::composer('layout.sidebar', function($view){
-            $topics = \App\Topic::all();
-            $view->with('topics', $topics);
-        });
+        \Carbon\Carbon::setLocale('zh');
+
 
     }
 

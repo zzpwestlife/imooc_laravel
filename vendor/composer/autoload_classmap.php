@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddStatusToSchoolsTable' => $baseDir . '/database/migrations/2017_09_06_210941_add_status_to_schools_table.php',
     'CreateAdminPermissionsTable' => $baseDir . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
     'CreateAdminUserTable' => $baseDir . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
     'CreatePermissionAndRoles' => $baseDir . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',

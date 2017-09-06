@@ -20,7 +20,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">学校列表</h3>
                     </div>
-                    <a type="button" class="btn " href="/admin/schools/create">增加学校</a>
+                    <a type="button" class="btn " href="/admin/school/create">增加学校</a>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
@@ -29,6 +29,7 @@
                                 <th style="width: 10px">#</th>
                                 <th>学校名</th>
                                 <th>添加时间</th>
+                                <th>修改时间</th>
                                 <th>操作</th>
                             </tr>
                             <?php if(count($schools) > 0): ?>
@@ -36,10 +37,11 @@
                                     <tr>
                                         <td><?php echo e($item->id); ?></td>
                                         <td><?php echo e($item->name); ?></td>
-                                        <td><?php echo e($item->created_at); ?></td>
+                                        <td><?php echo e($item->created_at->diffForHumans()); ?></td>
+                                        <td><?php echo e($item->updated_at->diffForHumans()); ?></td>
                                         <td>
                                             <a class="btn btn-icon btn-default" data-toggle="tooltip"
-                                               href="<?php echo e("/admin/school/update/".$item->id); ?>"
+                                               href="<?php echo e("/admin/school/create/".$item->id); ?>"
                                                title="编辑">
                                                 <i class="fa fa-edit"></i>
                                             </a>
@@ -51,9 +53,10 @@
                                                 <i class="fa fa-list-ol"></i>
                                             </a>
 
-                                            <a class="btn btn-icon btn-danger resource-delete"
-                                               data-toggle="tooltip" title='删除' delete-url="/admin/school/<?php echo e($item->id); ?>"
-                                               href="#">
+                                            <a class="btn btn-icon btn-danger btn-delete"
+                                               data-toggle="tooltip"
+                                               href="javascript:;" title="删除" data-operate-type="delete"
+                                               data-item-id="<?php echo e($item->id); ?>">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
@@ -76,21 +79,55 @@
                 </div>
             </div>
         </div>
+        <div id="dialog-confirm" title="Empty the recycle bin?">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+        </div>
     </section>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
     <script type="text/javascript">
 
-        $(function () {
+        $(document).ready(function () {
 
-            $(".select2").select2({language: "zh-CN", 'theme': "bootstrap"});
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-            // 全选效果
-            $("#checkbox_all").checkAll();
 
-            // 搜索 按钮
-            searchWithParams('/live/home?page=1');
+            $('.btn-delete').click(function () {
+                $( "#dialog-confirm" ).dialog({
+                resizable: false,
+                    height: "auto",
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                    "Delete all items": function() {
+                        $( this ).dialog( "close" );
+                    },
+                    Cancel: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+//                var itemId = $(this).attr("data-item-id");
+//                $.ajax({
+//                    type: "POST",
+//                    url: "/admin/school/" + itemId + '/delete',
+//                    dataType: "JSON",
+//                    success: function (data) {
+//                        console.log(data);
+//                        if (!0 != data.error) {
+//                            alert(data.msg);
+//                            return false;
+//                        }
+//                        location.reload();
+//                    }
+//                });
+//                return false;
+            });
         });
 
     </script>
