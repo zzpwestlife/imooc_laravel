@@ -11,7 +11,7 @@
                     <!-- /.box-header -->
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">增加学校</h3>
+                            <h3 class="box-title">@if(isset($school->id))编辑学校@else增加学校@endif</h3>
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
@@ -28,6 +28,10 @@
                         @include('admin.layout.error')
                         <!-- /.box-body -->
                             <div class="box-footer">
+                                <a class="btn btn-icon btn-default m-b-5" href="/admin/school"
+                                   title="取消">
+                                    取消
+                                </a>
                                 <button type="submit" class="btn btn-primary">提交</button>
                             </div>
                         </form>

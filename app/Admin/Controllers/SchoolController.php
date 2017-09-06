@@ -27,7 +27,7 @@ class SchoolController extends Controller
     {
         $id = request('id');
         $this->validate($request, [
-            'name' => 'required|min:4|max:30'
+            'name' => 'required|min:4|max:30|unique:schools,name'
         ]);
 
         if (empty($id)) {

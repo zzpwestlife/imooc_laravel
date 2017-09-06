@@ -9,7 +9,6 @@
 <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
 <footer class="footer" style="padding: 0px;">
     <div class="text-left col-sm-8" style="margin: 10px;">
-        2017 © 微考研.
         <a href="/admin/home">2017 © 微考研.</a>
     </div>
     <div class="text-right col-sm-2" style="margin: 10px;float: right;">
