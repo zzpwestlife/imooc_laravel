@@ -38,3 +38,10 @@ $factory->define(App\School::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
     ];
 });
+
+$factory->define(App\Major::class, function (Faker\Generator $faker) {
+    return [
+        'school_id' => $faker->numberBetween(1, 10),
+        'name' => $faker->name,
+    ];
+});

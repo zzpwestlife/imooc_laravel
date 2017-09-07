@@ -13,8 +13,4 @@ class School extends Model
         return $this->hasMany('\App\Major', 'school_id', 'id');
     }
 
-    public function scopeAvailable($query)
-    {
-        return $query->whereIn('status', [0]);
-    }
 }

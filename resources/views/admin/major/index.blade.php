@@ -14,8 +14,8 @@
 @section("content")
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">学校管理</h3>
-            <a type="button" class="btn " href="/admin/schools/create">增加学校</a>
+            <h3 class="box-title">专业管理</h3>
+            <a type="button" class="btn " href="/admin/majors/create">增加专业</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -31,7 +31,9 @@
                             <thead>
                             <tr role="row">
                                 <th style="width: 10px">#</th>
-                                <th>学校名</th>
+                                <th>专业名</th>
+                                <th>所属学校</th>
+                                <th>所属学院</th>
                                 <th>添加时间</th>
                                 <th>修改时间</th>
                                 <th>操作</th>
@@ -39,26 +41,20 @@
                             </thead>
                             <tbody>
 
-
-                            @if (count($schools) > 0)
-                                @foreach($schools as $item)
+                            @if (count($majors) > 0)
+                                @foreach($majors as $item)
                                     <tr>
                                         <td width="6%">{{$item->id}}</td>
                                         <td>{{$item->name}}</td>
+                                        <td>{{$item->school->name}}</td>
+                                        <td>{{$item->department}}</td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
                                             <a class="btn btn-icon btn-default" data-toggle="tooltip"
-                                               href="{{"/admin/schools/create/".$item->id}}"
+                                               href="{{"/admin/majors/create/".$item->id}}"
                                                title="编辑">
                                                 <i class="fa fa-edit"></i>
-                                            </a>
-
-                                            <a class="btn btn-icon btn-info"
-                                               data-toggle="tooltip"
-                                               href="{{"/admin/majors?school_id=".$item->id}}"
-                                               title="学院专业管理">
-                                                <i class="fa fa-list-ol"></i>
                                             </a>
 
                                             <a class="btn btn-icon btn-danger btn-delete"
@@ -86,10 +82,10 @@
 
                 <div class="row">
                     {{--<div class="col-sm-4 dataTables_info">--}}
-                        {{--显示第1-20行，共444行--}}
+                    {{--显示第1-20行，共444行--}}
                     {{--</div>--}}
                     <div class="col-sm-12">
-                        {{$schools->links()}}
+                        {{$majors->links()}}
                     </div>
                 </div>
             </div>
@@ -113,7 +109,7 @@
                         if (window.confirm('你确定要删除 ' + itemName + ' 吗？')) {
                             $.ajax({
                                 type: "POST",
-                                url: "/admin/schools/" + itemId + '/delete',
+                                url: "/admin/majors/" + itemId + '/delete',
                                 dataType: "JSON",
                                 success: function (data) {
                                     console.log(data);

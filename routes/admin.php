@@ -58,21 +58,42 @@ Route::group(['prefix' => 'admin'], function () {
     });
 //    });
 
-    // 学校管理
-    Route::get('/school', '\App\Admin\Controllers\SchoolController@index');
+    //
+    /**
+     * 学校管理
+     */
+    Route::get('/schools', '\App\Admin\Controllers\SchoolController@index');
     // 新增界面
-    Route::get('school/create', [
-        'as' => 'school.create',
+    Route::get('schools/create', [
+        'as' => 'schools.create',
         'uses' => '\App\Admin\Controllers\SchoolController@create'
     ]);
 
     // 编辑界面
-    Route::get('school/create/{id}', [
-        'as' => 'school.update',
+    Route::get('schools/create/{id}', [
+        'as' => 'schools.update',
         'uses' => '\App\Admin\Controllers\SchoolController@create'
     ]);
 
-    Route::post('/school/store', '\App\Admin\Controllers\SchoolController@store');
-    Route::post('/school/{school}/delete', '\App\Admin\Controllers\SchoolController@delete');
+    Route::post('/schools/store', '\App\Admin\Controllers\SchoolController@store');
+    Route::post('/schools/{school}/delete', '\App\Admin\Controllers\SchoolController@delete');
 
+    /**
+     * 专业管理
+     */
+    Route::get('/majors', '\App\Admin\Controllers\MajorController@index');
+    // 新增界面
+    Route::get('majors/create', [
+        'as' => 'majors.create',
+        'uses' => '\App\Admin\Controllers\MajorController@create'
+    ]);
+
+    // 编辑界面
+    Route::get('majors/create/{id}', [
+        'as' => 'majors.update',
+        'uses' => '\App\Admin\Controllers\MajorController@create'
+    ]);
+
+    Route::post('/majors/store', '\App\Admin\Controllers\MajorController@store');
+    Route::post('/majors/{school}/delete', '\App\Admin\Controllers\MajorController@delete');
 });

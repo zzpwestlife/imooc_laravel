@@ -31,4 +31,15 @@
       'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
     ),
   ),
+  'laracasts/utilities' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laracasts\\Utilities\\JavaScript\\JavaScriptServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'JavaScript' => 'Laracasts\\Utilities\\JavaScript\\JavaScriptFacade',
+    ),
+  ),
 );

@@ -12,11 +12,12 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="/admin/school/store" method="POST" id="form-item">
+                    <form role="form" action="/admin/schools/store" method="POST" id="form-item">
                         {{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">学校名</label>
+                                <label for="name" class="col-sm-2 control-label">学校名<span
+                                            class="required-field">*</span></label>
 
                                 <div class="col-sm-4">
                                     <input type="hidden" value="{{$school->id or 0}}" name="id">
@@ -27,8 +28,8 @@
                         </div>
                         <!-- /.box-body -->
                         @include("admin.layout.error")
-                        <div class="box-footer" style="margin-left: 160px;">
-                            <a class="btn btn-icon btn-default m-b-5" href="/admin/school"
+                        <div class="box-footer" style="margin-left: 168px;">
+                            <a class="btn btn-icon btn-default m-b-5" href="/admin/schools"
                                title="取消">取消
                             </a>
                             &emsp;

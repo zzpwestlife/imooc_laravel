@@ -20,6 +20,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
+        '6292c1671f9440c89e0af20a0f78754a' => __DIR__ . '/..' . '/laracasts/utilities/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -80,6 +81,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
             'Laravel\\Scout\\' => 14,
+            'Laracasts\\Utilities\\JavaScript\\' => 31,
         ),
         'I' => 
         array (
@@ -253,6 +255,10 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         array (
             0 => __DIR__ . '/..' . '/laravel/scout/src',
         ),
+        'Laracasts\\Utilities\\JavaScript\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laracasts/utilities/src',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -378,7 +384,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
     );
 
     public static $classMap = array (
-        'AddStatusToSchoolsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_06_210941_add_status_to_schools_table.php',
+        'AddDepartmentToMajor' => __DIR__ . '/../..' . '/database/migrations/2017_09_07_225204_add_department_to_major.php',
         'CreateAdminPermissionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
         'CreateAdminUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
         'CreatePermissionAndRoles' => __DIR__ . '/../..' . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',
