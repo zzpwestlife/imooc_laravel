@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use \App\School;
 
@@ -9,7 +10,7 @@ class SchoolController extends Controller
 {
     public function index()
     {
-        $schools = School::where('status', 0)->orderBy('updated_at', 'desc')->paginate();
+        $schools = School::whereNull('deleted_at')->orderBy('updated_at', 'desc')->paginate();
         return view('/admin/school/index', compact('schools'));
     }
 
@@ -40,7 +41,7 @@ class SchoolController extends Controller
 
     public function delete(School $school)
     {
-        $school->status = -1;
+        $school->deleted_at = Carbon::now()->toDateTimeString();
         $school->save();
         return [
             'error' => 0,
