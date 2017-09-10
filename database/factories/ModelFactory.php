@@ -18,6 +18,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'mobile' => $faker->phoneNumber,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
@@ -43,5 +44,21 @@ $factory->define(App\Major::class, function (Faker\Generator $faker) {
     return [
         'school_id' => $faker->numberBetween(1, 10),
         'name' => $faker->name,
+    ];
+});
+
+$factory->define(App\Shuoshuo::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1, 10),
+        'major_id' => $faker->numberBetween(1, 10),
+        'content' => $faker->sentence(10, true),
+    ];
+});
+
+$factory->define(App\ShuoshuoComment::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1, 10),
+        'shuoshuo_id' => $faker->numberBetween(1, 20),
+        'content' => $faker->sentence(10, true),
     ];
 });

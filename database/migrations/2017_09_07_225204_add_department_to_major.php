@@ -16,7 +16,7 @@ class AddDepartmentToMajor extends Migration
         //
         if (!Schema::hasColumn('majors', 'department')) {
             Schema::table('majors', function (Blueprint $table) {
-                $table->string('department')->default('')->after('school_id')->comment('学院名称');
+                $table->string('department')->nullable()->after('school_id')->comment('学院名称');
             });
         }
     }

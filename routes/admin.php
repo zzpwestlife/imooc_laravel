@@ -95,5 +95,24 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
     Route::post('/majors/store', '\App\Admin\Controllers\MajorController@store');
-    Route::post('/majors/{school}/delete', '\App\Admin\Controllers\MajorController@delete');
+    Route::post('/majors/{major}/delete', '\App\Admin\Controllers\MajorController@delete');
+
+    /**
+     * 说说管理
+     */
+    Route::get('/shuoshuos', '\App\Admin\Controllers\ShuoshuoController@index');
+    // 新增界面
+    Route::get('shuoshuos/create', [
+        'as' => 'shuoshuos.create',
+        'uses' => '\App\Admin\Controllers\ShuoshuoController@create'
+    ]);
+
+    // 编辑界面
+    Route::get('shuoshuos/create/{id}', [
+        'as' => 'shuoshuos.update',
+        'uses' => '\App\Admin\Controllers\ShuoshuoController@create'
+    ]);
+
+    Route::post('/shuoshuos/store', '\App\Admin\Controllers\ShuoshuoController@store');
+    Route::post('/shuoshuos/{shuoshuo}/delete', '\App\Admin\Controllers\ShuoshuoController@delete');
 });

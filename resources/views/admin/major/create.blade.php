@@ -12,21 +12,23 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="/admin/schools/store" method="POST" id="form-item">
+                    <form role="form" action="/admin/majors/store" method="POST" id="form-item">
                         {{csrf_field()}}
                         <div class="box-body">
                             <input type="hidden" value="{{$major->id or 0}}" name="id">
 
                             <div class="form-group col-sm-12">
-                                <label for="school" class="control-label col-sm-2">选择学校<span
+                                <label for="school_id" class="control-label col-sm-2">选择学校<span
                                             class="required-field">*</span></label>
 
                                 <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <select id="school" name="school" class="form-control select2">
+                                    <select id="school_id" name="school_id" class="form-control select2">
                                         <option value="">请选择</option>
                                         @foreach($schools as $key => $value)
                                             <option value="{{$value->id}}"
-                                                    @if($value->id == $major->school_id) selected @endif>{{$value->name}}</option>
+                                                    @if($value->id == $major->school_id) selected
+                                                    @elseif($value->id == $school->id) selected
+                                                    @endif>{{$value->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -55,7 +57,7 @@
                         <!-- /.box-body -->
                         @include("admin.layout.error")
                         <div class="box-footer" style="margin-left: 178px;">
-                            <a class="btn btn-icon btn-default m-b-5" href="/admin/school"
+                            <a class="btn btn-icon btn-default m-b-5" href="/admin/majors"
                                title="取消">取消
                             </a>
                             &emsp;

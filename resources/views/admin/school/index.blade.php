@@ -54,19 +54,21 @@
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
-                                            <a class="btn btn-icon btn-info"
-                                               data-toggle="tooltip"
-                                               href="{{"/admin/majors?school_id=".$item->id}}"
-                                               title="学院专业管理">
-                                                <i class="fa fa-list-ol"></i>
-                                            </a>
-
-                                            <a class="btn btn-icon btn-danger btn-delete"
-                                               data-toggle="tooltip"
-                                               href="javascript:;" title="删除" data-operate-type="delete"
-                                               data-item-id="{{$item->id}}" data-item-name="{{$item->name}}">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                            @if ($item->major_count > 0)
+                                                <a class="btn btn-icon btn-info"
+                                                   data-toggle="tooltip"
+                                                   href="{{"/admin/majors?school_id=".$item->id}}"
+                                                   title="学院专业管理">
+                                                    <i class="fa fa-list-ol"></i>
+                                                </a>
+                                            @else
+                                                <a class="btn btn-icon btn-danger btn-delete"
+                                                   data-toggle="tooltip"
+                                                   href="javascript:;" title="删除" data-operate-type="delete"
+                                                   data-item-id="{{$item->id}}" data-item-name="{{$item->name}}">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -86,7 +88,7 @@
 
                 <div class="row">
                     {{--<div class="col-sm-4 dataTables_info">--}}
-                        {{--显示第1-20行，共444行--}}
+                    {{--显示第1-20行，共444行--}}
                     {{--</div>--}}
                     <div class="col-sm-12">
                         {{$schools->links()}}
