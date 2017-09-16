@@ -41,8 +41,11 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\School::class, function (Faker\Generator $faker) {
+    $provinces = array_keys(\App\School::$provinces);
     return [
-        'name' => $faker->city . '大学',
+//        'name' => $faker->unique()->city . '大学',
+        'name' => $faker->unique()->city,
+        'province' => $provinces[rand(0, count($provinces) - 1)],
     ];
 });
 
@@ -77,5 +80,23 @@ $factory->define(App\ShuoshuoComment::class, function (Faker\Generator $faker) {
             return factory(\App\Shuoshuo::class)->create()->id;
         },
         'content' => $faker->sentence(10, true),
+    ];
+});
+
+
+$factory->define(App\File::class, function (Faker\Generator $faker) {
+    $suffix = \App\File::$suffix;
+    return [
+        'user_id' => function () {
+            return factory(\App\User::class)->create()->id;
+        },
+        'major_id' => function () {
+            return factory(\App\Major::class)->create()->id;
+        },
+        'filename' => $faker->name . $suffix[rand(0, count($suffix) - 1)],
+        'type' => $faker->numberBetween(0, 1),
+        'category' => $faker->numberBetween(0, 1),
+        'status' => $faker->numberBetween(0, 1),
+        'downloads' => $faker->numberBetween(20, 100),
     ];
 });

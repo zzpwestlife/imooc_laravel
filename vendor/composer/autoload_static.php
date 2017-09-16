@@ -388,6 +388,7 @@ class ComposerStaticInita2c44dc62e0f7ae865d8d6f4c2e4be8e
         'CreateAdminPermissionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
         'CreateAdminUserTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
         'CreatePermissionAndRoles' => __DIR__ . '/../..' . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',
+        'CreateTableFiles' => __DIR__ . '/../..' . '/database/migrations/2017_09_16_144549_create_table_files.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

@@ -10,6 +10,7 @@ return array(
     'CreateAdminPermissionsTable' => $baseDir . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
     'CreateAdminUserTable' => $baseDir . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
     'CreatePermissionAndRoles' => $baseDir . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',
+    'CreateTableFiles' => $baseDir . '/database/migrations/2017_09_16_144549_create_table_files.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',

@@ -115,4 +115,23 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/shuoshuos/store', '\App\Admin\Controllers\ShuoshuoController@store');
     Route::post('/shuoshuos/{shuoshuo}/delete', '\App\Admin\Controllers\ShuoshuoController@delete');
+
+    /**
+     * 文件管理
+     */
+    Route::get('/files', '\App\Admin\Controllers\FileController@index');
+    // 新增界面
+    Route::get('files/create', [
+        'as' => 'files.create',
+        'uses' => '\App\Admin\Controllers\FileController@create'
+    ]);
+
+    // 编辑界面
+    Route::get('files/create/{id}', [
+        'as' => 'files.update',
+        'uses' => '\App\Admin\Controllers\FileController@create'
+    ]);
+
+    Route::post('/files/store', '\App\Admin\Controllers\FileController@store');
+    Route::post('/files/{file}/delete', '\App\Admin\Controllers\FileController@delete');
 });
