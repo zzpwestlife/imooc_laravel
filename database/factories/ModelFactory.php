@@ -21,6 +21,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'mobile' => $faker->phoneNumber,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'major_id' => function () {
+            return factory(\App\Major::class)->create()->id;
+        },
+        'school_name' => function () {
+            return factory(\App\School::class)->create()->name;
+        },
     ];
 });
 
@@ -36,29 +42,40 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 
 $factory->define(App\School::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->city . '大学',
     ];
 });
 
 $factory->define(App\Major::class, function (Faker\Generator $faker) {
     return [
-        'school_id' => $faker->numberBetween(1, 10),
-        'name' => $faker->name,
+        'school_id' => function () {
+            return factory(\App\School::class)->create()->id;
+        },
+        'name' => $faker->name . '工程',
+        'department' => $faker->name . '学院',
     ];
 });
 
 $factory->define(App\Shuoshuo::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->numberBetween(1, 10),
-        'major_id' => $faker->numberBetween(1, 10),
-        'content' => $faker->sentence(10, true),
+        'user_id' => function () {
+            return factory(\App\User::class)->create()->id;
+        },
+        'major_id' => function () {
+            return factory(\App\Major::class)->create()->id;
+        },
+        'content' => $faker->sentence(50, true),
     ];
 });
 
 $factory->define(App\ShuoshuoComment::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->numberBetween(1, 10),
-        'shuoshuo_id' => $faker->numberBetween(1, 20),
+        'user_id' => function () {
+            return factory(\App\User::class)->create()->id;
+        },
+        'shuoshuo_id' => function () {
+            return factory(\App\Shuoshuo::class)->create()->id;
+        },
         'content' => $faker->sentence(10, true),
     ];
 });
