@@ -28,16 +28,18 @@
     24 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
     25 => 'Barryvdh\\Debugbar\\ServiceProvider',
     26 => 'Laracasts\\Utilities\\JavaScript\\JavaScriptServiceProvider',
-    27 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    28 => 'App\\Providers\\AppServiceProvider',
-    29 => 'App\\Providers\\AuthServiceProvider',
-    30 => 'App\\Providers\\EventServiceProvider',
-    31 => 'App\\Providers\\RouteServiceProvider',
-    32 => 'Laravel\\Scout\\ScoutServiceProvider',
-    33 => 'ScoutEngines\\Elasticsearch\\ElasticsearchProvider',
-    34 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
-    35 => 'Barryvdh\\Debugbar\\ServiceProvider',
-    36 => 'Laracasts\\Utilities\\JavaScript\\JavaScriptServiceProvider',
+    27 => 'Collective\\Html\\HtmlServiceProvider',
+    28 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    29 => 'App\\Providers\\AppServiceProvider',
+    30 => 'App\\Providers\\AuthServiceProvider',
+    31 => 'App\\Providers\\EventServiceProvider',
+    32 => 'App\\Providers\\RouteServiceProvider',
+    33 => 'Laravel\\Scout\\ScoutServiceProvider',
+    34 => 'ScoutEngines\\Elasticsearch\\ElasticsearchProvider',
+    35 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
+    36 => 'Barryvdh\\Debugbar\\ServiceProvider',
+    37 => 'Laracasts\\Utilities\\JavaScript\\JavaScriptServiceProvider',
+    38 => 'Collective\\Html\\HtmlServiceProvider',
   ),
   'eager' => 
   array (
@@ -163,6 +165,10 @@
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'command.ide-helper.generate' => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
     'command.ide-helper.models' => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
+    'html' => 'Collective\\Html\\HtmlServiceProvider',
+    'form' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
   ),
   'when' => 
   array (
@@ -206,6 +212,9 @@
     array (
     ),
     'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider' => 
+    array (
+    ),
+    'Collective\\Html\\HtmlServiceProvider' => 
     array (
     ),
   ),

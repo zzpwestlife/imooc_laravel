@@ -15,7 +15,7 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">文件管理</h3>
-            <a type="button" class="btn " href="/admin/schools/create">增加文件</a>
+            <a type="button" class="btn " href="/admin/files/create">增加文件</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

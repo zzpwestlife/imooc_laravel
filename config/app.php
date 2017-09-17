@@ -188,9 +188,8 @@ return [
         //Jenssegers\Mongodb\MongodbServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class
-
-
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -243,6 +242,7 @@ return [
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
