@@ -40,14 +40,14 @@ Route::group(['prefix' => 'admin'], function () {
 
     // 专题模块
 //    Route::group(['middleware' => 'can:topic'], function () {
-        Route::resource('topics', '\App\Admin\Controllers\TopicController', [
-            'only' => [
-                'index',
-                'create',
-                'store',
-                'destroy'
-            ]
-        ]);
+    Route::resource('topics', '\App\Admin\Controllers\TopicController', [
+        'only' => [
+            'index',
+            'create',
+            'store',
+            'destroy'
+        ]
+    ]);
 //    });
 
     // 通知模块
@@ -59,43 +59,62 @@ Route::group(['prefix' => 'admin'], function () {
 //    });
 
     //
+//    /**
+//     * 学校管理
+//     */
+//    Route::get('/schools', '\App\Admin\Controllers\ForumController@index');
+//    // 新增界面
+//    Route::get('schools/create', [
+//        'as' => 'schools.create',
+//        'uses' => '\App\Admin\Controllers\ForumController@create'
+//    ]);
+//
+//    // 编辑界面
+//    Route::get('schools/create/{id}', [
+//        'as' => 'schools.update',
+//        'uses' => '\App\Admin\Controllers\ForumController@create'
+//    ]);
+//
+//    Route::post('/schools/store', '\App\Admin\Controllers\ForumController@store');
+//    Route::post('/schools/{school}/delete', '\App\Admin\Controllers\ForumController@delete');
+//
+//    /**
+//     * 专业管理
+//     */
+//    Route::get('/majors', '\App\Admin\Controllers\MajorController@index');
+//    // 新增界面
+//    Route::get('majors/create', [
+//        'as' => 'majors.create',
+//        'uses' => '\App\Admin\Controllers\MajorController@create'
+//    ]);
+//
+//    // 编辑界面
+//    Route::get('majors/create/{id}', [
+//        'as' => 'majors.update',
+//        'uses' => '\App\Admin\Controllers\MajorController@create'
+//    ]);
+//
+//    Route::post('/majors/store', '\App\Admin\Controllers\MajorController@store');
+//    Route::post('/majors/{major}/delete', '\App\Admin\Controllers\MajorController@delete');
+
     /**
-     * 学校管理
+     * 论坛管理
      */
-    Route::get('/schools', '\App\Admin\Controllers\SchoolController@index');
+    Route::get('/forums', '\App\Admin\Controllers\ForumController@index');
     // 新增界面
-    Route::get('schools/create', [
-        'as' => 'schools.create',
-        'uses' => '\App\Admin\Controllers\SchoolController@create'
+    Route::get('forums/create', [
+        'as' => 'forums.create',
+        'uses' => '\App\Admin\Controllers\ForumController@create'
     ]);
 
     // 编辑界面
-    Route::get('schools/create/{id}', [
-        'as' => 'schools.update',
-        'uses' => '\App\Admin\Controllers\SchoolController@create'
+    Route::get('forums/create/{id}', [
+        'as' => 'forums.update',
+        'uses' => '\App\Admin\Controllers\ForumController@create'
     ]);
 
-    Route::post('/schools/store', '\App\Admin\Controllers\SchoolController@store');
-    Route::post('/schools/{school}/delete', '\App\Admin\Controllers\SchoolController@delete');
-
-    /**
-     * 专业管理
-     */
-    Route::get('/majors', '\App\Admin\Controllers\MajorController@index');
-    // 新增界面
-    Route::get('majors/create', [
-        'as' => 'majors.create',
-        'uses' => '\App\Admin\Controllers\MajorController@create'
-    ]);
-
-    // 编辑界面
-    Route::get('majors/create/{id}', [
-        'as' => 'majors.update',
-        'uses' => '\App\Admin\Controllers\MajorController@create'
-    ]);
-
-    Route::post('/majors/store', '\App\Admin\Controllers\MajorController@store');
-    Route::post('/majors/{major}/delete', '\App\Admin\Controllers\MajorController@delete');
+    Route::post('/forums/store', '\App\Admin\Controllers\ForumController@store');
+    Route::post('/forums/delete', '\App\Admin\Controllers\ForumController@delete');
 
     /**
      * 说说管理

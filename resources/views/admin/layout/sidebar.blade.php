@@ -17,50 +17,60 @@
                 </ul>
             </li>
 
-            <li class="treeview active">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>学校专业管理</span>
-                    <span class="pull-right-container"></span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/admin/schools"><i class="fa fa-circle-o"></i> 学校管理</a></li>
-                    <li><a href="/admin/majors"><i class="fa fa-circle-o"></i> 专业管理</a></li>
-                </ul>
-            </li>
+            {{--<li class="treeview active">--}}
+                {{--<a href="#">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>学校专业管理</span>--}}
+                    {{--<span class="pull-right-container"></span>--}}
+                {{--</a>--}}
+                {{--<ul class="treeview-menu">--}}
+                    {{--<li><a href="/admin/schools"><i class="fa fa-circle-o"></i> 学校管理</a></li>--}}
+                    {{--<li><a href="/admin/majors"><i class="fa fa-circle-o"></i> 专业管理</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             {{--@endcan--}}
             {{--            @can('post')--}}
-            <li class="active treeview">
-                <a href="/admin/posts">
-                    <i class="fa fa-dashboard"></i> <span>文章管理</span>
-                </a>
-            </li>
+            {{--<li class="active treeview">--}}
+                {{--<a href="/admin/posts">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>文章管理</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
             {{--@endcan--}}
             {{--            @can('topic')--}}
-            <li class="active treeview">
-                <a href="/admin/majorcourses">
-                    <i class="fa fa-dashboard"></i> <span>专业课管理</span>
-                </a>
-            </li>
-            <li class="active treeview">
-                <a href="/admin/topics">
-                    <i class="fa fa-dashboard"></i> <span>专题管理</span>
-                </a>
-            </li>
-            <li class="active treeview">
-                <a href="/admin/scorelines">
-                    <i class="fa fa-dashboard"></i> <span>分数线管理</span>
-                </a>
-            </li>
-            <li class="active treeview">
-                <a href="/admin/lectures">
-                    <i class="fa fa-dashboard"></i> <span>讲座管理</span>
-                </a>
-            </li>
+            {{--<li class="active treeview">--}}
+                {{--<a href="/admin/majorcourses">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>专业课管理</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="active treeview">--}}
+                {{--<a href="/admin/topics">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>专题管理</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="active treeview">--}}
+                {{--<a href="/admin/scorelines">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>分数线管理</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="active treeview">--}}
+                {{--<a href="/admin/lectures">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>讲座管理</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
             {{--@endcan--}}
             {{--            @can('notice')--}}
             <li class="active treeview">
+                <a href="/admin/forums">
+                    <i class="fa fa-dashboard"></i> <span>论坛管理</span>
+                </a>
+            </li>
+            <li class="active treeview">
                 <a href="/admin/shuoshuos">
                     <i class="fa fa-dashboard"></i> <span>说说管理</span>
+                </a>
+            </li>
+            <li class="active treeview">
+                <a href="/admin/posts">
+                    <i class="fa fa-dashboard"></i> <span>帖子管理</span>
                 </a>
             </li>
             <li class="active treeview">
@@ -68,11 +78,11 @@
                     <i class="fa fa-dashboard"></i> <span>文件管理</span>
                 </a>
             </li>
-            <li class="active treeview">
-                <a href="/admin/notices">
-                    <i class="fa fa-dashboard"></i> <span>通知管理</span>
-                </a>
-            </li>
+            {{--<li class="active treeview">--}}
+                {{--<a href="/admin/notices">--}}
+                    {{--<i class="fa fa-dashboard"></i> <span>通知管理</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
             {{--@endcan--}}
         </ul>
     </section>

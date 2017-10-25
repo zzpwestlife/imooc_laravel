@@ -60,17 +60,17 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-sm-12">
-                                <label for="course_type" class="control-label col-sm-2">选择课程类型<span
-                                            class="required-field">*</span></label>
+                            {{--<div class="form-group col-sm-12">--}}
+                                {{--<label for="course_type" class="control-label col-sm-2">选择课程类型<span--}}
+                                            {{--class="required-field">*</span></label>--}}
 
-                                <div class="col-sm-4 col-md-4 col-lg-4 switch">
-                                    <input type="checkbox" id="course_type" name="course_type" value="1"
-                                           @if($file->type==1) checked="checked"
-                                           @endif data-on-text="公开课"
-                                           data-off-text="专业课"/>
-                                </div>
-                            </div>
+                                {{--<div class="col-sm-4 col-md-4 col-lg-4 switch">--}}
+                                    {{--<input type="checkbox" id="course_type" name="course_type" value="1"--}}
+                                           {{--@if($file->type==1) checked="checked"--}}
+                                           {{--@endif data-on-text="公开课"--}}
+                                           {{--data-off-text="专业课"/>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
                             <div class="form-group col-sm-12">
                                 <label for="file_type" class="control-label col-sm-2">选择文件类型<span
