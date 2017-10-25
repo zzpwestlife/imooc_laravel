@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddDepartmentToMajor' => $baseDir . '/database/migrations/2017_09_07_225204_add_department_to_major.php',
+    'AlterTableShuoshuos' => $baseDir . '/database/migrations/2017_10_25_225732_alter_table_shuoshuos.php',
     'CreateAdminPermissionsTable' => $baseDir . '/database/migrations/2017_09_04_202119_create_admin_permissions_table.php',
     'CreateAdminUserTable' => $baseDir . '/database/migrations/2017_04_08_110156_create_admin_user_table.php',
     'CreatePermissionAndRoles' => $baseDir . '/database/migrations/2017_04_09_100358_create_permission_and_roles.php',

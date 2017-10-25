@@ -14,7 +14,13 @@
 @section("content")
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">说说管理</h3>
+            <h3 class="box-title">
+                说说评论管理
+                @if(count($shuoshuo)):
+                <a href="/admin/shuoshuos/create/{{$shuoshuo->id}}">{{$shuoshuo->content}}</a>
+                @endif
+            </h3>
+
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -30,9 +36,8 @@
                             <thead>
                             <tr role="row">
                                 <th style="width: 10px">#</th>
-                                <th>说说内容</th>
                                 <th>发表用户</th>
-                                <th>所在论坛</th>
+                                <th>评论内容</th>
                                 <th>添加时间</th>
                                 <th>修改时间</th>
                                 <th>操作</th>
@@ -41,18 +46,17 @@
                             <tbody>
 
 
-                            @if (count($shuoshuos) > 0)
-                                @foreach($shuoshuos as $item)
+                            @if (count($shuoshuoComments) > 0)
+                                @foreach($shuoshuoComments as $item)
                                     <tr>
                                         <td width="6%">{{$item->id}}</td>
-                                        <td width="30%">{{$item->content}}</td>
-                                        <td>@if(isset($item->user)){{$item->user->name}}@endif</td>
-                                        <td width="20%">{{$item->forum->name}}</td>
+                                        <td>{{$item->user->name}}</td>
+                                        <td>{{$item->content}}</td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
                                             <a class="btn btn-icon btn-default" data-toggle="tooltip"
-                                               href="{{"/admin/shuoshuos/create/".$item->id}}"
+                                               href="{{"/admin/shuoshuo_comments/create/".$item->id}}"
                                                title="编辑">
                                                 <i class="fa fa-edit"></i>
                                             </a>
@@ -60,8 +64,8 @@
                                             @if ($item->comment_count > 0)
                                                 <a class="btn btn-icon btn-info"
                                                    data-toggle="tooltip"
-                                                   href="{{"/admin/shuoshuo_comments?shuoshuo_id=".$item->id}}"
-                                                   title="说说评论管理">
+                                                   href="{{"/admin/shuoshuo_comment?shuoshuo_id=".$item->id}}"
+                                                   title="说说评论评论管理">
                                                     <i class="fa fa-list-ol"></i>
                                                 </a>
                                             @else
@@ -94,7 +98,7 @@
                     {{--显示第1-20行，共444行--}}
                     {{--</div>--}}
                     <div class="col-sm-12">
-                        {{$shuoshuos->links()}}
+                        {{$shuoshuoComments->links()}}
                     </div>
                 </div>
             </div>
@@ -118,7 +122,7 @@
                         if (window.confirm('你确定要删除 ' + itemName + ' 吗？')) {
                             $.ajax({
                                 type: "POST",
-                                url: "/admin/shuoshuos/delete",
+                                url: "/admin/shuoshuo_comments/delete",
                                 data: {id: itemId},
                                 dataType: "JSON",
                                 success: function (data) {

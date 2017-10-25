@@ -109,6 +109,26 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/shuoshuos/delete', '\App\Admin\Controllers\ShuoshuoController@delete');
 
     /**
+     * 说说评论管理----------------------------------------------------------------------------------------------------------
+     */
+    Route::get('/shuoshuo_comments', '\App\Admin\Controllers\ShuoshuoCommentController@index');
+
+    // 新增界面
+    Route::get('shuoshuo_comments/create', [
+        'as' => 'shuoshuo_comments.create',
+        'uses' => '\App\Admin\Controllers\ShuoshuoCommentController@create'
+    ]);
+
+    // 编辑界面
+    Route::get('shuoshuo_comments/create/{id}', [
+        'as' => 'shuoshuo_comments.update',
+        'uses' => '\App\Admin\Controllers\ShuoshuoCommentController@create'
+    ]);
+
+    Route::post('/shuoshuo_comments/store', '\App\Admin\Controllers\ShuoshuoCommentController@store');
+    Route::post('/shuoshuo_comments/delete', '\App\Admin\Controllers\ShuoshuoCommentController@delete');
+
+    /**
      * 文件管理----------------------------------------------------------------------------------------------------------
      */
     Route::get('/files', '\App\Admin\Controllers\FileController@index');

@@ -16,9 +16,9 @@ class Shuoshuo extends Model
         return $this->hasOne('\App\User', 'id', 'user_id');
     }
 
-    public function major()
+    public function forum()
     {
-        return $this->hasOne('\App\Major', 'id', 'major_id');
+        return $this->hasOne('\App\Forum', 'id', 'forum_id');
     }
 
     public function getCommentCountAttribute()

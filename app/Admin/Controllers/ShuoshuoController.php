@@ -2,7 +2,9 @@
 
 namespace App\Admin\Controllers;
 
+use App\Forum;
 use App\Major;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use \App\Shuoshuo;
@@ -11,7 +13,7 @@ class ShuoshuoController extends Controller
 {
     public function index()
     {
-        $shuoshuos = Shuoshuo::whereNull('deleted_at')->with('user')->with('major')->orderBy('updated_at',
+        $shuoshuos = Shuoshuo::whereNull('deleted_at')->with('user')->with('forum')->orderBy('updated_at',
             'desc')->paginate();
 //        dd($shuoshuos[0]->comment_count);
         return view('/admin/shuoshuo/index', compact('shuoshuos'));
@@ -20,25 +22,27 @@ class ShuoshuoController extends Controller
     public function create(Request $request, $id = 0)
     {
         if (!empty($id)) {
-            $shuoshuo = Shuoshuo::with('user')->with('major')->find($id);
+            $shuoshuo = Shuoshuo::with('user')->with('forum')->find($id);
         } else {
             $shuoshuo = new Shuoshuo();
         }
-        dd($shuoshuo);
-        return view('admin/shuoshuo/create', compact('shuoshuo'));
+        $users = User::whereNull('deleted_at')->orderBy('updated_at', 'desc')->get();
+        $forums = Forum::whereNull('deleted_at')->orderBy('updated_at', 'desc')->get();
+
+        return view('admin/shuoshuo/create', compact('shuoshuo', 'users', 'forums'));
     }
 
     public function store(Request $request)
     {
         $id = request('id');
         $this->validate($request, [
-            'name' => 'required|min:4|max:30|unique:shuoshuos,name'
+            'content' => 'required|min:4|max:300'
         ]);
 
         if (empty($id)) {
-            Shuoshuo::create(request(['name']));
+            Shuoshuo::create(request(['content', 'user_id', 'forum_id']));
         } else {
-            Shuoshuo::where('id', $id)->update(request(['name']));
+            Shuoshuo::where('id', $id)->update(request(['content', 'user_id', 'forum_id']));
         }
         return redirect('/admin/shuoshuos');
     }
