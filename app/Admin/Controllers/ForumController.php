@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Forum;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Overtrue\Pinyin\Pinyin;
 
 class ForumController extends Controller
 {
@@ -32,7 +33,12 @@ class ForumController extends Controller
             $this->validate($request, [
                 'name' => 'required|min:4|max:30|unique:forums,name'
             ]);
-            Forum::create(request(['name', 'alias']));
+
+            $name = request(['name']);
+            $alias = request(['alias']);
+            $pinyin = new Pinyin();
+            $alias = $pinyin->permalink($alias, '');
+            Forum::create(compact('name', 'alias'));
         } else {
             $this->validate($request, [
                 'name' => 'required|min:4|max:30'
