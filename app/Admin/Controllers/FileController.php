@@ -55,13 +55,23 @@ class FileController extends Controller
         return redirect('/admin/files');
     }
 
-    public function delete(File $file)
+    public function delete(Request $request)
     {
-        $file->deleted_at = Carbon::now()->toDateTimeString();
-        $file->save();
-        return [
-            'error' => 0,
-            'msg' => ''
-        ];
+
+        $id = $request->input('id', 0);
+        if (empty($id)) {
+            $returnData = [
+                'error' => 1,
+                'msg' => '文件 id 不能为空'
+            ];
+        } else {
+            File::destroy($id);
+            $returnData = [
+                'error' => 0,
+                'msg' => ''
+            ];
+        }
+
+        return response()->json($returnData)->setCallback($request->input('callback'));
     }
 }

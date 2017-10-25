@@ -4,6 +4,7 @@ namespace App;
 
 class File extends Model
 {
+
     protected $table = "files";
 
     public static $suffix = [

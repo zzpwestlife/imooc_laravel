@@ -31,33 +31,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/permissions/store', '\App\Admin\Controllers\PermissionController@store');
     });
 
-    // 文章管理
-    Route::group(['middleware' => 'can:post'], function () {
-        // 文章管理
-        Route::get('/posts', '\App\Admin\Controllers\PostController@index');
-        Route::post('/posts/{post}/status', '\App\Admin\Controllers\PostController@status');
-    });
-
-    // 专题模块
-//    Route::group(['middleware' => 'can:topic'], function () {
-    Route::resource('topics', '\App\Admin\Controllers\TopicController', [
-        'only' => [
-            'index',
-            'create',
-            'store',
-            'destroy'
-        ]
-    ]);
-//    });
-
-    // 通知模块
-    Route::group(['middleware' => 'can:notice'], function () {
-        Route::resource('notices', '\App\Admin\Controllers\NoticeController', [
-            'only' => ['index', 'create', 'store'],
-        ]);
-    });
-//    });
-
     //
 //    /**
 //     * 学校管理
@@ -98,7 +71,7 @@ Route::group(['prefix' => 'admin'], function () {
 //    Route::post('/majors/{major}/delete', '\App\Admin\Controllers\MajorController@delete');
 
     /**
-     * 论坛管理
+     * 论坛管理----------------------------------------------------------------------------------------------------------
      */
     Route::get('/forums', '\App\Admin\Controllers\ForumController@index');
     // 新增界面
@@ -117,7 +90,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/forums/delete', '\App\Admin\Controllers\ForumController@delete');
 
     /**
-     * 说说管理
+     * 说说管理----------------------------------------------------------------------------------------------------------
      */
     Route::get('/shuoshuos', '\App\Admin\Controllers\ShuoshuoController@index');
     // 新增界面
@@ -133,10 +106,10 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
     Route::post('/shuoshuos/store', '\App\Admin\Controllers\ShuoshuoController@store');
-    Route::post('/shuoshuos/{shuoshuo}/delete', '\App\Admin\Controllers\ShuoshuoController@delete');
+    Route::post('/shuoshuos/delete', '\App\Admin\Controllers\ShuoshuoController@delete');
 
     /**
-     * 文件管理
+     * 文件管理----------------------------------------------------------------------------------------------------------
      */
     Route::get('/files', '\App\Admin\Controllers\FileController@index');
     // 新增界面
@@ -152,5 +125,5 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
     Route::post('/files/store', '\App\Admin\Controllers\FileController@store');
-    Route::post('/files/{file}/delete', '\App\Admin\Controllers\FileController@delete');
+    Route::post('/files/delete', '\App\Admin\Controllers\FileController@delete');
 });

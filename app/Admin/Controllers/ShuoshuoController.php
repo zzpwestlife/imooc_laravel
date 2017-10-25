@@ -43,13 +43,23 @@ class ShuoshuoController extends Controller
         return redirect('/admin/shuoshuos');
     }
 
-    public function delete(Shuoshuo $shuoshuo)
+    public function delete(Request $request)
     {
-        $shuoshuo->deleted_at = Carbon::now()->toDateTimeString();
-        $shuoshuo->save();
-        return [
-            'error' => 0,
-            'msg' => ''
-        ];
+
+        $id = $request->input('id', 0);
+        if (empty($id)) {
+            $returnData = [
+                'error' => 1,
+                'msg' => '说说 id 不能为空'
+            ];
+        } else {
+            Shuoshuo::destroy($id);
+            $returnData = [
+                'error' => 0,
+                'msg' => ''
+            ];
+        }
+
+        return response()->json($returnData)->setCallback($request->input('callback'));
     }
 }

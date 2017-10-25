@@ -118,7 +118,8 @@
                         if (window.confirm('你确定要删除 ' + itemName + ' 吗？')) {
                             $.ajax({
                                 type: "POST",
-                                url: "/admin/files/" + itemId + '/delete',
+                                url: "/admin/files/delete",
+                                data: {id: itemId},
                                 dataType: "JSON",
                                 success: function (data) {
                                     console.log(data);
