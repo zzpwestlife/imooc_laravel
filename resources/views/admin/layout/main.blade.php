@@ -42,6 +42,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    @yield('add_css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -103,6 +104,7 @@
     <script src="{{ mix('/js/admin.js') }}"></script>
     <script src="/bower_components/jquery-form/src/jquery.form.js"></script>
     <script src="/bower_components/jquery-validation/dist/jquery.validate.js"></script>
+    @yield('add_script')
     @include("admin.layout.footer")
 </div>
 </body>

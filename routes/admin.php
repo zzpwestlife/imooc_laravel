@@ -130,6 +130,25 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/shuoshuo_comments/delete', '\App\Admin\Controllers\ShuoshuoCommentController@delete');
 
     /**
+     * 帖子管理----------------------------------------------------------------------------------------------------------
+     */
+    Route::get('/posts', '\App\Admin\Controllers\PostController@index');
+    // 新增界面
+    Route::get('posts/create', [
+        'as' => 'posts.create',
+        'uses' => '\App\Admin\Controllers\PostController@create'
+    ]);
+
+    // 编辑界面
+    Route::get('posts/create/{id}', [
+        'as' => 'posts.update',
+        'uses' => '\App\Admin\Controllers\PostController@create'
+    ]);
+
+    Route::post('/posts/store', '\App\Admin\Controllers\PostController@store');
+    Route::post('/posts/delete', '\App\Admin\Controllers\PostController@delete');
+
+    /**
      * 文件管理----------------------------------------------------------------------------------------------------------
      */
     Route::get('/files', '\App\Admin\Controllers\FileController@index');
