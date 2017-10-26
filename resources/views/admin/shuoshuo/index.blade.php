@@ -15,6 +15,7 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">说说管理</h3>
+            <a type="button" class="btn" href="{{"/admin/shuoshuos/create"}}">增加说说</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

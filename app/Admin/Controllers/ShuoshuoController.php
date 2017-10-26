@@ -11,6 +11,12 @@ use \App\Shuoshuo;
 
 class ShuoshuoController extends Controller
 {
+    /**
+     * @comment 说说列表
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function index()
     {
         $shuoshuos = Shuoshuo::whereNull('deleted_at')->with('user')->with('forum')->orderBy('updated_at',
@@ -19,6 +25,14 @@ class ShuoshuoController extends Controller
         return view('/admin/shuoshuo/index', compact('shuoshuos'));
     }
 
+    /**
+     * @comment 新建说说
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function create(Request $request, $id = 0)
     {
         if (!empty($id)) {
@@ -32,25 +46,45 @@ class ShuoshuoController extends Controller
         return view('admin/shuoshuo/create', compact('shuoshuo', 'users', 'forums'));
     }
 
+    /**
+     * @comment 更新说说
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function store(Request $request)
     {
-        $id = request('id');
+        $id = intval($request->input('id', 0));
+        $content = trim($request->input('content', ''));
+        $user_id = intval($request->input('user_id', 0));
+        $forum_id = intval($request->input('forum_id', 0));
         $this->validate($request, [
-            'content' => 'required|min:4|max:300'
+            'content' => 'required|min:4|max:300',
+            'user_id' => 'required|min:1',
+            'forum_id' => 'required|min:1',
         ]);
 
+        $data = compact('content', 'user_id', 'forum_id');
         if (empty($id)) {
-            Shuoshuo::create(request(['content', 'user_id', 'forum_id']));
+            Shuoshuo::create($data);
         } else {
-            Shuoshuo::where('id', $id)->update(request(['content', 'user_id', 'forum_id']));
+            Shuoshuo::where('id', $id)->update($data);
         }
         return redirect('/admin/shuoshuos');
     }
 
+    /**
+     * @comment 删除说说
+     * @param Request $request
+     * @return $this
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function delete(Request $request)
     {
 
-        $id = $request->input('id', 0);
+        $id = intval($request->input('id', 0));
         if (empty($id)) {
             $returnData = [
                 'error' => 1,
