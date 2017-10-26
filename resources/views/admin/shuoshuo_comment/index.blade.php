@@ -18,6 +18,8 @@
                 说说评论管理
                 @if(count($shuoshuo)):
                 <a href="/admin/shuoshuos/create/{{$shuoshuo->id}}">{{$shuoshuo->content}}</a>
+                <a type="button" class="btn"
+                   href="{{"/admin/shuoshuo_comments/create?shuoshuo_id=".$shuoshuo->id}}">增加说说评论</a>
                 @endif
             </h3>
 
@@ -56,26 +58,17 @@
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
                                             <a class="btn btn-icon btn-default" data-toggle="tooltip"
-                                               href="{{"/admin/shuoshuo_comments/create/".$item->id}}"
+                                               href="{{"/admin/shuoshuo_comments/create/".$item->id.'?shuoshuo_id='.$shuoshuo->id}}"
                                                title="编辑">
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
-                                            @if ($item->comment_count > 0)
-                                                <a class="btn btn-icon btn-info"
-                                                   data-toggle="tooltip"
-                                                   href="{{"/admin/shuoshuo_comment?shuoshuo_id=".$item->id}}"
-                                                   title="说说评论评论管理">
-                                                    <i class="fa fa-list-ol"></i>
-                                                </a>
-                                            @else
-                                                <a class="btn btn-icon btn-danger btn-delete"
-                                                   data-toggle="tooltip"
-                                                   href="javascript:;" title="删除" data-operate-type="delete"
-                                                   data-item-id="{{$item->id}}" data-item-content="{{$item->content}}">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                            @endif
+                                            <a class="btn btn-icon btn-danger btn-delete"
+                                               data-toggle="tooltip"
+                                               href="javascript:;" title="删除" data-operate-type="delete"
+                                               data-item-id="{{$item->id}}" data-item-content="{{$item->content}}">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -127,7 +120,7 @@
                                 dataType: "JSON",
                                 success: function (data) {
                                     console.log(data);
-                                    if (!0 != data.error) {
+                                    if (0 != data.error) {
                                         return false;
                                     }
                                 }

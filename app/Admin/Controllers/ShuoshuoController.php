@@ -3,9 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Forum;
-use App\Major;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use \App\Shuoshuo;
 

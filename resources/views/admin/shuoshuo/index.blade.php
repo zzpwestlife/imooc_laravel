@@ -58,6 +58,12 @@
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
+                                            <a class="btn btn-icon btn-success" data-toggle="tooltip"
+                                               href="{{"/admin/shuoshuo_comments/create?shuoshuo_id=".$item->id}}"
+                                               title="添加说说评论">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </a>
+
                                             @if ($item->comment_count > 0)
                                                 <a class="btn btn-icon btn-info"
                                                    data-toggle="tooltip"
@@ -73,6 +79,7 @@
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -124,7 +131,7 @@
                                 dataType: "JSON",
                                 success: function (data) {
                                     console.log(data);
-                                    if (!0 != data.error) {
+                                    if (0 != data.error) {
                                         return false;
                                     }
                                 }

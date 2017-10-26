@@ -46,6 +46,14 @@ class ShuoshuoCommentController extends Controller
      */
     public function create(Request $request, $id = 0)
     {
+        $shuoshuo_id = intval($request->input('shuoshuo_id', 0));
+
+        if (empty($shuoshuo_id)) {
+            return redirect('/');
+        } else {
+            $shuoshuo = Shuoshuo::find($shuoshuo_id);
+        }
+
         if (empty($id)) {
             $shuoshuoComment = new ShuoshuoComment();
         } else {
@@ -54,7 +62,7 @@ class ShuoshuoCommentController extends Controller
         $users = User::whereNull('deleted_at')->orderBy('updated_at', 'desc')->get();
         $shuoshuos = Shuoshuo::whereNull('deleted_at')->orderBy('updated_at', 'desc')->get();
 
-        return view('admin/shuoshuo_comment/create', compact('shuoshuoComment', 'users', 'shuoshuos'));
+        return view('admin/shuoshuo_comment/create', compact('shuoshuoComment', 'users', 'shuoshuos', 'shuoshuo'));
     }
 
     /**
@@ -72,8 +80,13 @@ class ShuoshuoCommentController extends Controller
         $content = trim($request->input('content', ''));
         $data = compact('user_id', 'shuoshuo_id', 'content');
 
+        if (empty($shuoshuo_id)) {
+            return redirect('/');
+        }
+
         $this->validate($request, [
-            'content' => 'required|min:4|max:300'
+            'content' => 'required|min:4|max:300',
+            'user_id' => 'required|min:1'
         ]);
         if (empty($id)) {
             $new = ShuoshuoComment::create($data);

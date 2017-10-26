@@ -15,31 +15,6 @@
                     <form role="form" action="/admin/shuoshuos/store" method="POST" id="form-item">
                         {{csrf_field()}}
                         <div class="box-body">
-                            <div class="form-group  col-sm-12">
-                                <label for="content" class="col-sm-2 control-label">说说内容<span
-                                            class="required-field">*</span></label>
-
-                                <div class="col-sm-4">
-                                    <input type="hidden" value="{{$shuoshuo->id or 0}}" name="id">
-                                    <textarea rows="5" class="form-control" name="content" id="content" minlength="4" required>@if(!empty($shuoshuo)){{$shuoshuo->content}}@endif</textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-sm-12">
-                                <label for="user_id" class="control-label col-sm-2">选择作者<span
-                                            class="required-field">*</span></label>
-
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <select id="user_id" name="user_id" class="form-control select2">
-                                        <option value="">请选择</option>
-                                        @foreach($users as $key => $value)
-                                            <option value="{{$value->id}}"
-                                                    @if($value->id == $shuoshuo->user_id) selected
-                                                    @endif>{{$value->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="form-group col-sm-12">
                                 <label for="forum_id" class="control-label col-sm-2">选择论坛<span
@@ -56,6 +31,34 @@
                                     </select>
                                 </div>
                             </div>
+                            
+                            <div class="form-group col-sm-12">
+                                <label for="user_id" class="control-label col-sm-2">选择作者<span
+                                            class="required-field">*</span></label>
+
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <select id="user_id" name="user_id" class="form-control select2">
+                                        <option value="">请选择</option>
+                                        @foreach($users as $key => $value)
+                                            <option value="{{$value->id}}"
+                                                    @if($value->id == $shuoshuo->user_id) selected
+                                                    @endif>{{$value->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group  col-sm-12">
+                                <label for="content" class="col-sm-2 control-label">说说内容<span
+                                            class="required-field">*</span></label>
+
+                                <div class="col-sm-4">
+                                    <input type="hidden" value="{{$shuoshuo->id or 0}}" name="id">
+                                    <textarea rows="5" class="form-control" name="content" id="content" minlength="4"
+                                              required>@if(!empty($shuoshuo)){{$shuoshuo->content}}@endif</textarea>
+                                </div>
+                            </div>
+
                         </div>
                         <!-- /.box-body -->
                         @include("admin.layout.error")

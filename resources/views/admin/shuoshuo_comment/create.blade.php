@@ -9,12 +9,16 @@
                 <div class="box box-info">
                     <div class="box-header with-border">
                         <h3 class="box-title">@if(isset($shuoshuoComment->id))编辑说说评论@else增加说说评论@endif</h3>
+                        @if(count($shuoshuo)):
+                        <a href="/admin/shuoshuos/create/{{$shuoshuo->id}}">{{$shuoshuo->content}}</a>
+                        @endif
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form" action="/admin/shuoshuo_comments/store" method="POST" id="form-item">
                         {{csrf_field()}}
                         <div class="box-body">
+                            <input type="hidden" name="shuoshuo_id" id="shuoshuo_id" value="{{$shuoshuo->id}}">
                             <div class="form-group col-sm-12">
                                 <label for="content" class="col-sm-2 control-label">说说评论名<span
                                             class="required-field">*</span></label>
@@ -42,21 +46,21 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-sm-12">
-                                <label for="shuoshuo_id" class="control-label col-sm-2">选择说说<span
-                                            class="required-field">*</span></label>
+                            {{--<div class="form-group col-sm-12">--}}
+                            {{--<label for="shuoshuo_id" class="control-label col-sm-2">选择说说<span--}}
+                            {{--class="required-field">*</span></label>--}}
 
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <select id="shuoshuo_id" name="shuoshuo_id" class="form-control select2">
-                                        <option value="">请选择</option>
-                                        @foreach($shuoshuos as $key => $value)
-                                            <option value="{{$value->id}}"
-                                                    @if($value->id == $shuoshuoComment->shuoshuo_id) selected
-                                                    @endif>{{$value->content}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                            {{--<div class="col-sm-4 col-md-4 col-lg-4">--}}
+                            {{--<select id="shuoshuo_id" name="shuoshuo_id" class="form-control select2">--}}
+                            {{--<option value="">请选择</option>--}}
+                            {{--@foreach($shuoshuos as $key => $value)--}}
+                            {{--<option value="{{$value->id}}"--}}
+                            {{--@if($value->id == $shuoshuoComment->shuoshuo_id) selected--}}
+                            {{--@endif>{{$value->content}}</option>--}}
+                            {{--@endforeach--}}
+                            {{--</select>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
 
                         </div>
                         <!-- /.box-body -->
