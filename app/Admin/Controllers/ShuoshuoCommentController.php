@@ -10,21 +10,40 @@ use Illuminate\Http\Request;
 
 class ShuoshuoCommentController extends Controller
 {
+    /**
+     * @comment 说说评论列表
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function index(Request $request)
     {
-        $shuoshuoId = $request->input('shuoshuo_id', 0);
+        $shuoshuoId = intval($request->input('shuoshuo_id', 0));
         if (empty($shuoshuoId)) {
             $shuoshuo = new \stdClass();
             $shuoshuoComments = new \stdClass();
         } else {
             $shuoshuo = Shuoshuo::find($shuoshuoId);
-            $shuoshuoComments = ShuoshuoComment::where('shuoshuo_id',
-                $shuoshuoId)->whereNull('deleted_at')->with('user')->with('shuoshuo')->orderBy('updated_at',
-                'desc')->paginate();
+            $shuoshuoComments = ShuoshuoComment::where(
+                'shuoshuo_id',
+                $shuoshuoId
+            )->whereNull('deleted_at')->with('user')->with('shuoshuo')->orderBy(
+                'updated_at',
+                'desc'
+            )->paginate();
         }
         return view('/admin/shuoshuo_comment/index', compact('shuoshuo', 'shuoshuoComments'));
     }
 
+    /**
+     * @comment 添加说说评论
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function create(Request $request, $id = 0)
     {
         if (empty($id)) {
@@ -38,25 +57,42 @@ class ShuoshuoCommentController extends Controller
         return view('admin/shuoshuo_comment/create', compact('shuoshuoComment', 'users', 'shuoshuos'));
     }
 
+    /**
+     * @comment 更新说说评论
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function store(Request $request)
     {
-        $id = request('id');
+        $id = intval($request->input('id', 0));
+        $user_id = intval($request->input('user_id', 0));
+        $shuoshuo_id = intval($request->input('shuoshuo_id', 0));
+        $content = trim($request->input('content', ''));
+        $data = compact('user_id', 'shuoshuo_id', 'content');
 
         $this->validate($request, [
             'content' => 'required|min:4|max:300'
         ]);
         if (empty($id)) {
-            $new = ShuoshuoComment::create(request(['content', 'user_id', 'shuoshuo_id']));
+            $new = ShuoshuoComment::create($data);
         } else {
-            $new = ShuoshuoComment::where('id', $id)->update(request(['content', 'user_id', 'shuoshuo_id']));
+            $new = ShuoshuoComment::where('id', $id)->update($data);
         }
-        return redirect('/admin/shuoshuo_comments?shuoshuo_id=' . request('shuoshuo_id'));
+        return redirect('/admin/shuoshuo_comments?shuoshuo_id=' . $shuoshuo_id);
     }
 
+    /**
+     * @comment 删除说说评论
+     * @param Request $request
+     * @return $this
+     * @author zzp
+     * @date 2017-10-27
+     */
     public function delete(Request $request)
     {
-
-        $id = $request->input('id', 0);
+        $id = intval($request->input('id', 0));
         if (empty($id)) {
             $returnData = [
                 'error' => 1,

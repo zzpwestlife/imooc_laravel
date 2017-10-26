@@ -19,8 +19,10 @@ class ShuoshuoController extends Controller
      */
     public function index()
     {
-        $shuoshuos = Shuoshuo::whereNull('deleted_at')->with('user')->with('forum')->orderBy('updated_at',
-            'desc')->paginate();
+        $shuoshuos = Shuoshuo::whereNull('deleted_at')->with('user')->with('forum')->orderBy(
+            'updated_at',
+            'desc'
+        )->paginate();
 //        dd($shuoshuos[0]->comment_count);
         return view('/admin/shuoshuo/index', compact('shuoshuos'));
     }
@@ -83,7 +85,6 @@ class ShuoshuoController extends Controller
      */
     public function delete(Request $request)
     {
-
         $id = intval($request->input('id', 0));
         if (empty($id)) {
             $returnData = [

@@ -78,7 +78,6 @@ class ForumController extends Controller
      */
     public function delete(Request $request)
     {
-
         $id = $request->input('id', 0);
         if (empty($id)) {
             $returnData = [
