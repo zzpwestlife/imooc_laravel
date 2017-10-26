@@ -27,16 +27,16 @@
                                 </div>
                             </div>
 
-                            @if(isset($forum->id))
-                                <div class="form-group col-sm-12">
-                                    <label for="alias" class="col-sm-2 control-label">论坛拼音</label>
+                            {{--@if(isset($forum->id))--}}
+                            {{--<div class="form-group col-sm-12">--}}
+                            {{--<label for="alias" class="col-sm-2 control-label">论坛拼音</label>--}}
 
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="alias" id="alias"
-                                               value="@if(!empty($forum)){{$forum->alias}}@endif" placeholder="请输入论坛拼音">
-                                    </div>
-                                </div>
-                            @endif
+                            {{--<div class="col-sm-4">--}}
+                            {{--<input type="text" class="form-control" name="alias" id="alias"--}}
+                            {{--value="@if(!empty($forum)){{$forum->alias}}@endif" placeholder="请输入论坛拼音">--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
                         </div>
                         <!-- /.box-body -->
                         @include("admin.layout.error")

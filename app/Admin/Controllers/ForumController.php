@@ -50,21 +50,21 @@ class ForumController extends Controller
     {
         $id = intval($request->input('id', 0));
         $name = trim($request->input('name', ''));
-        $alias = trim($request->input('alias', ''));
+        $pinyin = new Pinyin();
+        $alias = $pinyin->permalink($name, '');
+        $alias_abbr = $pinyin->abbr($name, '');
 
+        $data = compact('name', 'alias', 'alias_abbr');
         if (empty($id)) {
             $this->validate($request, [
                 'name' => 'required|min:4|max:30|unique:forums,name'
             ]);
-
-            $pinyin = new Pinyin();
-            $alias = $pinyin->permalink($name, '');
-            Forum::create(compact('name', 'alias'));
+            Forum::create($data);
         } else {
             $this->validate($request, [
                 'name' => 'required|min:4|max:30'
             ]);
-            Forum::where('id', $id)->update(compact('name', 'alias'));
+            Forum::where('id', $id)->update($data);
         }
         return redirect('/admin/forums');
     }

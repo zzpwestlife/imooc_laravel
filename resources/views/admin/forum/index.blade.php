@@ -33,6 +33,7 @@
                                 <th style="width: 10px">#</th>
                                 <th>论坛名</th>
                                 <th>拼音</th>
+                                <th>拼音缩写</th>
                                 <th>添加时间</th>
                                 <th>修改时间</th>
                                 <th>操作</th>
@@ -46,6 +47,7 @@
                                         <td width="6%">{{$item->id}}</td>
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->alias}}</td>
+                                        <td>{{$item->alias_abbr}}</td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>
                                         <td>{{$item->updated_at->diffForHumans()}}</td>
                                         <td>
