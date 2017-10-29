@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="/adminlte/plugins/select2/select2.css">
     <link rel="stylesheet" href="/css/admin.css">
-
+    <link rel="stylesheet" href="/bower_components/wangEditor/release/wangEditor.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -104,6 +104,7 @@
     <script src="{{ mix('/js/admin.js') }}"></script>
     <script src="/bower_components/jquery-form/src/jquery.form.js"></script>
     <script src="/bower_components/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="/bower_components/wangEditor/release/wangEditor.min.js"></script>
     @yield('add_script')
     @include("admin.layout.footer")
 </div>

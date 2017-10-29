@@ -46,7 +46,7 @@
                                 @foreach($posts as $item)
                                     <tr>
                                         <td width="6%">{{$item->id}}</td>
-                                        <td width="30%">{{$item->content}}</td>
+                                        <td width="30%">{{$item->short_content}}</td>
                                         <td>@if(isset($item->user)){{$item->user->name}}@endif</td>
                                         <td width="20%">{{$item->forum->name}}</td>
                                         <td>{{$item->created_at->diffForHumans()}}</td>

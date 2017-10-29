@@ -16,4 +16,8 @@ class Model extends EloquentModel
     // 无效
     const STATUS_INVALID = 0;
 
+    public function getAppends()
+    {
+        return $this->getArrayableAppends();
+    }
 }

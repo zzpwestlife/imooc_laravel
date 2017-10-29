@@ -17,10 +17,12 @@ class PostController extends Controller
      */
     public function index()
     {
+
         $posts = Post::whereNull('deleted_at')->with('user')->with('forum')->orderBy(
             'updated_at',
             'desc'
         )->paginate();
+
         return view('/admin/post/index', compact('posts'));
     }
 
@@ -59,7 +61,7 @@ class PostController extends Controller
         $user_id = intval($request->input('user_id', 0));
         $forum_id = intval($request->input('forum_id', 0));
         $this->validate($request, [
-            'content' => 'required|min:4|max:300',
+            'content' => 'required|min:4',
             'user_id' => 'required|min:1',
             'forum_id' => 'required|min:1',
         ]);
@@ -75,7 +77,7 @@ class PostController extends Controller
         if ($request->ajax()) {
             $returnData = [
                 'error' => 0,
-                'msg' => ''
+                'msg' => '成功'
             ];
             return response()->json($returnData)->setCallback($request->input('callback'));
         }

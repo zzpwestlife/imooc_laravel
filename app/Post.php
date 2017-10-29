@@ -5,6 +5,7 @@ namespace App;
 class Post extends Model
 {
     protected $table = "posts";
+    protected $appends = ['short_content'];
 
     public function comments()
     {
@@ -21,8 +22,8 @@ class Post extends Model
         return $this->hasOne('\App\Forum', 'id', 'forum_id');
     }
 
-//    public function getCommentCountAttribute()
-//    {
-//        return ShuoshuoComment::whereNull('deleted_at')->where('shuoshuo_id', $this->id)->count();
-//    }
+    public function getShortContentAttribute()
+    {
+        return getShareContent($this->attributes['content']);
+    }
 }
