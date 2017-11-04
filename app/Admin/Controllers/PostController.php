@@ -110,5 +110,26 @@ class PostController extends Controller
 
         return response()->json($returnData)->setCallback($request->input('callback'));
     }
+
+    /**
+     * @comment 上传图片
+     * @param Request $request
+     * @return $this
+     * @author zzp
+     * @date 2017-11-03
+     */
+    public function imageUpload(Request $request)
+    {
+        // TODO 测试storage link 生成的路径是否只是在Linux下能访问
+        $path = $request->file('wangEditorImg')->storePublicly(microtime(true) * 10000);
+
+        $returnData = [
+            'errno' => 0,
+            'data' => [
+                asset('storage/' . $path)
+            ]
+        ];
+        return response()->json($returnData)->setCallback($request->input('callback'));
+    }
 }
 

@@ -90,12 +90,15 @@
 
             var E = window.wangEditor;
             var editor = new E('#editor');
-            editor.customConfig.uploadImgServer = '/uploads/posts';  // 上传图片到服务器
+            editor.customConfig.uploadImgServer = '/admin/posts/image/upload';  // 上传图片到服务器
+            editor.customConfig.uploadImgHeaders = {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            };
+            editor.customConfig.uploadFileName = 'wangEditorImg';
             // 将图片大小限制为 1M
             editor.customConfig.uploadImgMaxSize = 1024 * 1024;
             // 限制一次最多上传 5 张图片
             editor.customConfig.uploadImgMaxLength = 5;
-//            editor.customConfig.uploadImgShowBase64 = true;   // 使用 base64 保存图片
             // 隐藏“网络图片”tab
             editor.customConfig.showLinkImg = false;
             editor.customConfig.zIndex = 1;

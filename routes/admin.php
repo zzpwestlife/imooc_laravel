@@ -148,6 +148,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/posts/store', '\App\Admin\Controllers\PostController@store');
     Route::post('/posts/delete', '\App\Admin\Controllers\PostController@delete');
 
+    // 图片上传
+    Route::post('/posts/image/upload', '\App\Admin\Controllers\PostController@imageUpload');
+
+
     /**
      * 文件管理----------------------------------------------------------------------------------------------------------
      */
