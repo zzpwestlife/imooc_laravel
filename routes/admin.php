@@ -130,7 +130,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/shuoshuo_comments/delete', '\App\Admin\Controllers\ShuoshuoCommentController@delete');
 
     /**
-     * 帖子管理----------------------------------------------------------------------------------------------------------
+     * 经验贴管理----------------------------------------------------------------------------------------------------------
      */
     Route::get('/posts', '\App\Admin\Controllers\PostController@index');
     // 新增界面
@@ -151,7 +151,44 @@ Route::group(['prefix' => 'admin'], function () {
     // 图片上传
     Route::post('/posts/image/upload', '\App\Admin\Controllers\PostController@imageUpload');
 
+    /**
+     * 问题管理----------------------------------------------------------------------------------------------------------
+     */
+    Route::get('/questions', '\App\Admin\Controllers\QuestionController@index');
+    // 新增界面
+    Route::get('questions/create', [
+        'as' => 'questions.create',
+        'uses' => '\App\Admin\Controllers\QuestionController@create'
+    ]);
 
+    // 编辑界面
+    Route::get('questions/create/{id}', [
+        'as' => 'questions.update',
+        'uses' => '\App\Admin\Controllers\QuestionController@create'
+    ]);
+
+    Route::post('/questions/store', '\App\Admin\Controllers\QuestionController@store');
+    Route::post('/questions/delete', '\App\Admin\Controllers\QuestionController@delete');
+
+    /**
+     * 问题答案管理----------------------------------------------------------------------------------------------------------
+     */
+    Route::get('/answers', '\App\Admin\Controllers\AnswerController@index');
+
+    // 新增界面
+    Route::get('answers/create', [
+        'as' => 'answers.create',
+        'uses' => '\App\Admin\Controllers\AnswerController@create'
+    ]);
+
+    // 编辑界面
+    Route::get('answers/create/{id}', [
+        'as' => 'answers.update',
+        'uses' => '\App\Admin\Controllers\AnswerController@create'
+    ]);
+
+    Route::post('/answers/store', '\App\Admin\Controllers\AnswerController@store');
+    Route::post('/answers/delete', '\App\Admin\Controllers\AnswerController@delete');
     /**
      * 文件管理----------------------------------------------------------------------------------------------------------
      */

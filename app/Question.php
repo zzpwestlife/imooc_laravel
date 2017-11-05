@@ -2,14 +2,14 @@
 
 namespace App;
 
-class Post extends Model
+class Question extends Model
 {
-    protected $table = "experiences";
+    protected $table = "questions";
     protected $appends = ['short_content'];
 
-    public function comments()
+    public function answers()
     {
-        return $this->hasMany('\App\PostComment', 'post_id', 'id');
+        return $this->hasMany('\App\Answer', 'question_id', 'id');
     }
 
     public function user()
@@ -25,5 +25,10 @@ class Post extends Model
     public function getShortContentAttribute()
     {
         return getShareContent($this->attributes['content']);
+    }
+
+    public function getAnswerCountAttribute()
+    {
+        return Answer::whereNull('deleted_at')->where('question_id', $this->id)->count();
     }
 }

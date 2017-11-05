@@ -70,7 +70,12 @@
             </li>
             <li class="active treeview">
                 <a href="/admin/posts">
-                    <i class="fa fa-dashboard"></i> <span>帖子管理</span>
+                    <i class="fa fa-dashboard"></i> <span>经验贴管理</span>
+                </a>
+            </li>
+            <li class="active treeview">
+                <a href="/admin/questions">
+                    <i class="fa fa-dashboard"></i> <span>问答管理</span>
                 </a>
             </li>
             <li class="active treeview">
